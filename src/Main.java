@@ -1,14 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+        Animal animal1 = new Animal("Lion", 5);
+        Animal animal2 = new Animal("Tiger", 3);
 
+        Zookeeper keeper = new Zookeeper("Alex");
+        Zoo zoo = new Zoo("City Zoo");
+
+        zoo.showZoo();
+        animal1.showInfo();
+        animal2.showInfo();
+        keeper.feedAnimal(animal1);
+        keeper.feedAnimal(animal2);
+
+        if (animal1.getAge() > animal2.getAge()) {
+            System.out.println(animal1.getName() + " is older than " + animal2.getName());
+        } else {
+            System.out.println(animal2.getName() + " is older than " + animal1.getName());
+        }
     }
 }
