@@ -1,15 +1,25 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+
 public class Zoo {
-    private String zooName;
+    private ArrayList<Animal> animals = new ArrayList<>();
 
-    public Zoo(String zooName) {
-        this.zooName = zooName;
+    public void addAnimal(Animal animal) {
+        animals.add(animal);
     }
-
-    public String getZooName() {
-        return zooName;
+    public void showAllAnimals() {
+        for (Animal a : animals) {
+            System.out.println(a);
+        }
     }
-
-    public void showZoo() {
-        System.out.println("Zoo name: " + zooName);
+    public void findByName(String name) {
+        for (Animal a : animals) {
+            if (a.getName().equalsIgnoreCase(name)) {
+                System.out.println(a);
+            }
+        }
+    }
+    public void sortByAge() {
+        animals.sort(Comparator.comparingInt(Animal::getAge));
     }
 }

@@ -1,4 +1,6 @@
-public class Animal {
+import java.util.Objects;
+
+public abstract class Animal {
     private String name;
     private int age;
 
@@ -7,22 +9,27 @@ public class Animal {
         this.age = age;
     }
 
-
+    public abstract void makeSound();
     public String getName() {
         return name;
     }
-
     public int getAge() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age = age;
+    @Override
+    public String toString() {
+        return "Animal{name='" + name + "', age=" + age + "}";
     }
-
-    public void showInfo() {
-        System.out.println("Animal name: " + name + ", age: " + age);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal)) return false;
+        Animal animal = (Animal) o;
+        return age == animal.age && name.equals(animal.name);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 }
-
 

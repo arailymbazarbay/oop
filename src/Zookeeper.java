@@ -5,10 +5,6 @@ public class Zookeeper {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void feedAnimal(Animal animal) {
         System.out.println(name + " feeds " + animal.getName());
     }

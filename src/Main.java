@@ -1,22 +1,23 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Zoo zoo = new Zoo();
+        Scanner scanner = new Scanner(System.in);
 
-        Animal animal1 = new Animal("Lion", 5);
-        Animal animal2 = new Animal("Tiger", 3);
+        zoo.addAnimal(new Lion("Simba", 5));
+        zoo.addAnimal(new Elephant("Dumbo", 10));
 
-        Zookeeper keeper = new Zookeeper("Alex");
-        Zoo zoo = new Zoo("City Zoo");
+        System.out.println("All animals:");
+        zoo.showAllAnimals();
 
-        zoo.showZoo();
-        animal1.showInfo();
-        animal2.showInfo();
-        keeper.feedAnimal(animal1);
-        keeper.feedAnimal(animal2);
+        System.out.print("Enter animal name to search: ");
+        String name = scanner.nextLine();
+        zoo.findByName(name);
 
-        if (animal1.getAge() > animal2.getAge()) {
-            System.out.println(animal1.getName() + " is older than " + animal2.getName());
-        } else {
-            System.out.println(animal2.getName() + " is older than " + animal1.getName());
-        }
+        zoo.sortByAge();
+        System.out.println("Animals sorted by age:");
+        zoo.showAllAnimals();
     }
 }
+
