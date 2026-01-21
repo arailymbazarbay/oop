@@ -5,7 +5,8 @@ public class Elephant extends Animal {
     }
 
     @Override
-    public void makeSound() {
-        System.out.println("Elephant trumpets");
+    public String makeSound() {
+        return "Trumpet";
     }
 }
+
